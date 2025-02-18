@@ -16,7 +16,6 @@ func InitRouter(router *gin.Engine, db *mongo.Database) {
 	router.DELETE("/tracks/:track_id", func(c *gin.Context) { controllers.DeleteTrack(c, db.Collection("tracks")) })
 	router.POST("/tracks", func(c *gin.Context) { controllers.UploadTrack(c, db.Collection("tracks")) })
 	router.GET("/albums/:album_id", func(c *gin.Context) { controllers.GetAlbum(c, db.Collection("albums")) })
-	router.GET("/playlists/:user_id", func(c *gin.Context) { controllers.GetPlaylists(c, db.Collection("playlists")) })
 	router.GET("/playlists/:playlist_id", func(c *gin.Context) { controllers.GetPlaylistByID(c, db.Collection("playlists")) })
 	router.POST("/playlists", func(c *gin.Context) { controllers.CreatePlaylist(c, db.Collection("playlists")) })
 	router.DELETE("/playlists/:playlist_id/tracks/:track_id", func(c *gin.Context) { controllers.RemoveTrackFromPlaylist(c, db.Collection("playlists")) })
